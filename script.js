@@ -11,13 +11,11 @@ codes.forEach((code, index) => {
 
   code.addEventListener("keydown", (e) => {
     if (e.key === "Backspace") {
-      if (code.value === "") {
-        if (index > 0) {
-          codes[index - 1].focus();
-          codes[index - 1].value = "";
-        }
-      } else {
+      if (code.value !== "") {
         code.value = "";
+      } else if (index > 0) {
+        codes[index - 1].value = "";
+        codes[index - 1].focus();
       }
     }
   });
